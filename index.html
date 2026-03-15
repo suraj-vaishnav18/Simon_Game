@@ -3,40 +3,53 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Simon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Simon Game — a fun memory pattern game. Test your memory by repeating the color sequence!">
+  <title>Simon Memory Game 🕹️</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
 
 <body>
-  <h2 class="top-h1">How to Play this game view this <a target="_blank"  href="https://www.youtube.com/watch?v=1Yqj76Q4jJ4">link</a> video</h2>
-  
-  <h1 id="level-title">Sioman Game 🕹️</h1>
-  <h2 class="click-hide-show">click start Button <span><button class="button-78 start-btn" role="button">Start</button></span></h2> 
+  <h2 class="top-h1">How to Play this game view this <a target="_blank"
+      href="https://www.youtube.com/watch?v=1Yqj76Q4jJ4">link</a> video</h2>
+
+  <h1 id="level-title">Simon Memory Game 🕹️</h1>
+
+  <!-- Score Section -->
+  <div class="score-section">
+    <div class="score-card">
+      <div class="score-label">Current Score</div>
+      <div class="score-value" id="current-score">0</div>
+    </div>
+    <div class="score-card best-score-card">
+      <div class="score-label">🏆 Best Score</div>
+      <div class="score-value" id="best-score">0</div>
+    </div>
+    <div class="score-card last-score-card">
+      <div class="score-label">Last Score</div>
+      <div class="score-value" id="last-score">0</div>
+    </div>
+  </div>
+
+  <h2 class="click-hide-show">Click Start <span><button class="button-78 start-btn" role="button">Start</button></span>
+  </h2>
+
   <div class="container">
-    <div lass="row">
-
-      <div type="button" id="green" class="btn green">
-
-      </div>
-
-      <div type="button" id="red" class="btn red">
-
-      </div>
+    <div class="row">
+      <div type="button" id="green" class="btn green"></div>
+      <div type="button" id="red" class="btn red"></div>
     </div>
 
     <div class="row">
-
-      <div type="button" id="yellow" class="btn yellow">
-
-      </div>
-      <div type="button" id="blue" class="btn blue">
-
-      </div>
-
+      <div type="button" id="yellow" class="btn yellow"></div>
+      <div type="button" id="blue" class="btn blue"></div>
     </div>
-
   </div>
+
+  <p class="footer-tag">Built with ❤️ — Simon Memory Game</p>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="index.js"></script>
 </body>

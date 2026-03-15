@@ -3,6 +3,19 @@ var gamePattern = [];
 var userClickedPattern = [];
 var toggle = false;
 var level = 0;
+
+// Load last score and best score from localStorage on page load
+$(document).ready(function () {
+    var storedLastScore = localStorage.getItem("simonLastScore");
+    if (storedLastScore) {
+        $("#last-score").text(storedLastScore);
+    }
+    var storedBestScore = localStorage.getItem("simonBestScore");
+    if (storedBestScore) {
+        $("#best-score").text(storedBestScore);
+    }
+});
+
 $(".start-btn").click(function () {
     if (!toggle) {
         $("#level-title").text("Level " + level);
@@ -36,6 +49,18 @@ function checkAnswer(currentLevel) {
     else {
       console.log("wrong");
 
+      // Save the score to localStorage before resetting
+      var finalScore = level;
+      localStorage.setItem("simonLastScore", finalScore);
+      $("#last-score").text(finalScore);
+
+      // Update best score if current score is higher
+      var currentBest = parseInt(localStorage.getItem("simonBestScore")) || 0;
+      if (finalScore > currentBest) {
+          localStorage.setItem("simonBestScore", finalScore);
+          $("#best-score").text(finalScore);
+      }
+
       playSound("wrong");
 
       $("body").addClass("game-over");
@@ -43,7 +68,7 @@ function checkAnswer(currentLevel) {
         $("body").removeClass("game-over");
       }, 200);
 
-      $("#level-title").text("Game Over,click start");
+      $("#level-title").text("Game Over, click Start");
       $(".click-hide-show").show();
         startOver();
     }
@@ -53,6 +78,8 @@ function nextSequence() {
     userClickedPattern=[];
     level++;
     $("#level-title").text("Level " + level);
+    // Update current score display
+    $("#current-score").text(level);
     var randomeNum = Math.floor(Math.random() * 4);
     var randomChosenColour = buttonColors[randomeNum];
     gamePattern.push(randomChosenColour);
@@ -63,6 +90,8 @@ function startOver(){
     level=0;
     gamePattern=[];
     toggle=false;
+    // Reset current score display
+    $("#current-score").text(0);
 }
 function playSound(name) {
     var audio = new Audio("sounds/" + name + ".mp3");
@@ -76,4 +105,3 @@ function animatePress(currentColour) {
         $("." + currentColour).removeClass("pressed");
     }, 200);
 }
-
