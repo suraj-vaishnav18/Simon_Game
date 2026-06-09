@@ -7,7 +7,7 @@ a growing sequence of colors and sounds.
 [https://suraj-vaishnav18.github.io/Simon_Game/](https://suraj-vaishnav18.github.io/Simon_Game/)
 
 ## 📸 Screenshot
-![Simon Game](./screenshot.png)
+![Simon Game](./Screenshot.png)
 
 ## 🎯 How to Play
 1. Click the **Start** button to begin
